@@ -6,8 +6,8 @@
 
 - attach and detach processes using [`ptrace`](https://man7.org/linux/man-pages/man2/ptrace.2.html) (Linux only)
 - intercept and manipulate their [`syscalls`](https://man7.org/linux/man-pages/man2/syscalls.2.html) (block, change arguments, return value)
-- prepare scenarios in a simple `yaml` format
-- write advanced scenarios using `syscallmonkey` as an SDK
+- [prepare scenarios](/tutorials/) in a simple `yaml` format
+- [write advanced use cases](/advanced/) using `syscallmonkey` as an SDK
 
 ## Teaser
 
