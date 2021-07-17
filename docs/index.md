@@ -20,7 +20,7 @@ root@f34cc94a6b6d:/# whoami
 root
 ```
 
-Write this to `scenario.yml` to always return 1 for the [`getuid`](https://linux.die.net/man/2/geteuid) syscall:
+Use this scenario to always return 1 for the [`getuid`](https://linux.die.net/man/2/geteuid) syscall:
 
 ```yaml
 # cat /examples/getuid-user1.yml

@@ -15,5 +15,4 @@ plugins:
 
 nav:
   - Home: index.md
-  - Getting Started:
-    - Installation: installation.md
+  - Getting Started: getting-started.md
