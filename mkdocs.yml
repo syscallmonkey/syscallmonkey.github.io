@@ -8,5 +8,7 @@ theme:
 markdown_extensions:
   - toc:
       permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
 plugins:
   - search
