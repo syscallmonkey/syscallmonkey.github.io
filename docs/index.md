@@ -40,7 +40,7 @@ daemon
 This is because the user number 1 happens to be daemon on my system:
 
 ```sh
-root@02a8cb7164ef:/# head -n2 /etc/passwd
+root@02a8cb7164ef:/# head -n2 /etc/passwd 
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 ```

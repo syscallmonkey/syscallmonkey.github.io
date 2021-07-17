@@ -12,3 +12,8 @@ markdown_extensions:
   - pymdownx.superfences
 plugins:
   - search
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: installation.md
