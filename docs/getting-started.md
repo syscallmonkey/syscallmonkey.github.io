@@ -180,9 +180,7 @@ exit_group(error_code=0)
 
 ## Quick start
 
-You now have a Syscall Monkey available. Time for some mischief!
-
-Here's a quick example to get you started:
+You now have a Syscall Monkey available. Here's a quick example to get you started:
 
 ### Change the return value of geteuid
 
@@ -226,4 +224,4 @@ bin
 
 ## Time for mischief!
 
-You now have a Syscall Monkey available. Time for some mischief!
+This should be enough to get you started. Have fun!
