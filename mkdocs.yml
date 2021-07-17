@@ -1,0 +1,12 @@
+site_name: Syscall Monkey
+site_url: https://syscallmonkey.github.io/
+theme:
+  name: material
+  features:
+    - navigation.indexes
+    - navigation.top
+markdown_extensions:
+  - toc:
+      permalink: true
+plugins:
+  - search
