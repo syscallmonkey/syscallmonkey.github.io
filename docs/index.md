@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-`Syscall Monkey` is like next-gen, cloud native [`strace`](https://man7.org/linux/man-pages/man1/strace.1.html):
+`Syscall Monkey` is a next-gen, cloud-native [`strace`](https://man7.org/linux/man-pages/man1/strace.1.html):
 
 - attach and detach processes using [`ptrace`](https://man7.org/linux/man-pages/man2/ptrace.2.html) (Linux only)
 - intercept and manipulate their [`syscalls`](https://man7.org/linux/man-pages/man2/syscalls.2.html) (block, change arguments, return value)
