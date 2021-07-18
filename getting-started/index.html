@@ -1,0 +1,744 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://syscallmonkey.github.io/getting-started/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
+    
+    
+      
+        <title>Getting Started - Syscall Monkey</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3754935a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Syscall Monkey" class="md-header__button md-logo" aria-label="Syscall Monkey" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Syscall Monkey
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Syscall Monkey" class="md-nav__button md-logo" aria-label="Syscall Monkey" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Syscall Monkey
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Getting Started
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary" class="md-nav__link">
+    Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-docker-container" class="md-nav__link">
+    Pull Docker container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-docker-container" class="md-nav__link">
+    Building Docker container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    Compatibility
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-syscall-monkey" class="md-nav__link">
+    Running Syscall Monkey
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Syscall Monkey">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-new-process" class="md-nav__link">
+    Start a new process
+  </a>
+  
+    <nav class="md-nav" aria-label="Start a new process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-syscall" class="md-nav__link">
+    access syscall
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attaching-to-a-running-process" class="md-nav__link">
+    Attaching to a running process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    Quick start
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-return-value-of-geteuid" class="md-nav__link">
+    Change the return value of geteuid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-for-mischief" class="md-nav__link">
+    Time for mischief!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/" class="md-nav__link">
+        Advanced Usage
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binary" class="md-nav__link">
+    Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-docker-container" class="md-nav__link">
+    Pull Docker container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-docker-container" class="md-nav__link">
+    Building Docker container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    Compatibility
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-syscall-monkey" class="md-nav__link">
+    Running Syscall Monkey
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Syscall Monkey">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-new-process" class="md-nav__link">
+    Start a new process
+  </a>
+  
+    <nav class="md-nav" aria-label="Start a new process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-syscall" class="md-nav__link">
+    access syscall
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attaching-to-a-running-process" class="md-nav__link">
+    Attaching to a running process
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    Quick start
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-the-return-value-of-geteuid" class="md-nav__link">
+    Change the return value of geteuid
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time-for-mischief" class="md-nav__link">
+    Time for mischief!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Getting Started</h1>
+                
+                <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Syscall Monkey is written in Go, and there are a few different ways you can get started.</p>
+<h3 id="binary">Binary<a class="headerlink" href="#binary" title="Permanent link">&para;</a></h3>
+<p>You can build the binary from the source:</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/syscallmonkey/monkey.git
+<span class="nb">cd</span> monkey
+make bin/monkey
+./bin/monkey -h
+</code></pre></div>
+<p>Note, that if you're running on MacOS, you can build for Linux, but unfortunately MacOS's version of <code>ptrace</code> doesn't allow any of this magic to happen.</p>
+<h3 id="pull-docker-container">Pull Docker container<a class="headerlink" href="#pull-docker-container" title="Permanent link">&para;</a></h3>
+<p>When using with Kubernetes, you can use our official docker images.</p>
+<div class="highlight"><pre><span></span><code>docker pull ghcr.io/syscallmonkey/monkey:0.0.1rc1
+</code></pre></div>
+<p>Check <a href="https://github.com/syscallmonkey/monkey/pkgs/container/monkey">the latest available versions here</a>.</p>
+<p>Note, that these container builds are minimal, and don't include things like bash.</p>
+<div class="highlight"><pre><span></span><code>$ docker run --rm -ti --cap-add SYS_PTRACE ghcr.io/syscallmonkey/monkey:0.0.1 -h
+Usage:
+  monkey <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Application Options:
+  -p, --attach<span class="o">=</span>  Attach to the specified pid
+  -t, --target<span class="o">=</span>  Attach to process matching this name
+  -c, --config<span class="o">=</span>  Configuration file with desired scenario
+  -o, --output<span class="o">=</span>  Write the tracing output to the file <span class="o">(</span>instead of stdout<span class="o">)</span>
+  -C, --summary  Show verbose debug information
+  -s, --silent   Don<span class="err">&#39;</span>t display tracing info
+
+Help Options:
+  -h, --help     Show this <span class="nb">help</span> message
+</code></pre></div>
+<h3 id="building-docker-container">Building Docker container<a class="headerlink" href="#building-docker-container" title="Permanent link">&para;</a></h3>
+<p>If you're like to build the container locally from the source, it's easy:</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/syscallmonkey/monkey.git
+<span class="nb">cd</span> monkey
+make build
+make run
+</code></pre></div>
+<p><code>make run</code> is a shortcut that will start the newly built image and run a bash session inside:</p>
+<div class="highlight"><pre><span></span><code>root@3e14fcd5843c:/# monkey -h
+Usage:
+  monkey <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Application Options:
+  -p, --attach<span class="o">=</span>  Attach to the specified pid
+  -t, --target<span class="o">=</span>  Attach to process matching this name
+  -c, --config<span class="o">=</span>  Configuration file with desired scenario
+  -o, --output<span class="o">=</span>  Write the tracing output to the file <span class="o">(</span>instead of stdout<span class="o">)</span>
+  -C, --summary  Show verbose debug information
+  -s, --silent   Don<span class="err">&#39;</span>t display tracing info
+
+Help Options:
+  -h, --help     Show this <span class="nb">help</span> message
+</code></pre></div>
+<h3 id="compatibility">Compatibility<a class="headerlink" href="#compatibility" title="Permanent link">&para;</a></h3>
+<p>Currently, only <code>Linux</code> on <code>x86_64</code> is supported. If you need arm support, file an issue.</p>
+<h2 id="running-syscall-monkey">Running Syscall Monkey<a class="headerlink" href="#running-syscall-monkey" title="Permanent link">&para;</a></h2>
+<p>There are two ways of running Syscall Monkey:</p>
+<ul>
+<li>start a process (append the command at the end)</li>
+<li>attach to a running process (<code>-p</code> flag)</li>
+</ul>
+<h3 id="start-a-new-process">Start a new process<a class="headerlink" href="#start-a-new-process" title="Permanent link">&para;</a></h3>
+<p>To start a new process and manipulate it, just append the command at the end of the <code>monkey</code> command.</p>
+<p>What you're going to see is the list of all <code>syscalls</code> made by the program, printed in the following format:</p>
+<div class="highlight"><pre><span></span><code>SYSCALL_NAME<span class="o">(</span><span class="nv">ARG_NAME</span><span class="o">=</span>ARG_VALUE<span class="o">)</span> <span class="o">=</span> RETURN_CODE <span class="o">(</span>OPTIONALLY ERROR DESCRIPTION<span class="o">)</span>
+</code></pre></div>
+<p>For example, let's see what <code>syscalls</code> a simple <code>sleep 1</code> makes:</p>
+<div class="highlight"><pre><span></span><code>root@c69219c773ff:/# monkey sleep <span class="m">1</span>
+Version v0.0.1, build Sat Jul <span class="m">17</span> <span class="m">10</span>:30:03 UTC <span class="m">2021</span>
+Started new process pid <span class="m">21</span>
+execve<span class="o">(</span><span class="nv">filename</span><span class="o">=</span>NULL, <span class="nv">argv</span><span class="o">=</span><span class="m">0</span>, <span class="nv">envp</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+brk<span class="o">(</span><span class="nv">brk</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">94331848404992</span>
+arch_prctl<span class="o">(</span><span class="nv">task</span><span class="o">=</span><span class="m">12289</span>, <span class="nv">code</span><span class="o">=</span><span class="m">140722511137424</span>, <span class="nv">addr</span><span class="o">=</span><span class="m">140631102649024</span><span class="o">)</span> <span class="o">=</span> -1 <span class="o">(</span>errno <span class="m">22</span>: invalid argument<span class="o">)</span>
+access<span class="o">(</span><span class="nv">filename</span><span class="o">=</span>/etc/ld.so.preload, <span class="nv">mode</span><span class="o">=</span><span class="m">4</span><span class="o">)</span> <span class="o">=</span> -1 <span class="o">(</span>errno <span class="m">2</span>: no such file or directory<span class="o">)</span>
+openat<span class="o">(</span><span class="nv">dfd</span><span class="o">=</span><span class="m">4294967196</span>, <span class="nv">filename</span><span class="o">=</span>/etc/ld.so.cache, <span class="nv">flags</span><span class="o">=</span><span class="m">524288</span>, <span class="nv">mode</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">3</span>
+fstat<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">statbuf</span><span class="o">=</span><span class="m">140722511133840</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+mmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">0</span>, <span class="nv">len</span><span class="o">=</span><span class="m">6530</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">1</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">2</span>, <span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">off</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">140631102525440</span>
+close<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+openat<span class="o">(</span><span class="nv">dfd</span><span class="o">=</span><span class="m">4294967196</span>, <span class="nv">filename</span><span class="o">=</span>/lib/x86_64-linux-gnu/libc.so.6, <span class="nv">flags</span><span class="o">=</span><span class="m">524288</span>, <span class="nv">mode</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">3</span>
+read<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">buf</span><span class="o">=</span>, <span class="nv">count</span><span class="o">=</span><span class="m">832</span><span class="o">)</span> <span class="o">=</span> <span class="m">832</span>
+pread64<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">buf</span><span class="o">=</span>, <span class="nv">count</span><span class="o">=</span><span class="m">784</span>, <span class="nv">pos</span><span class="o">=</span><span class="m">64</span><span class="o">)</span> <span class="o">=</span> <span class="m">784</span>
+pread64<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">buf</span><span class="o">=</span>, <span class="nv">count</span><span class="o">=</span><span class="m">32</span>, <span class="nv">pos</span><span class="o">=</span><span class="m">848</span><span class="o">)</span> <span class="o">=</span> <span class="m">32</span>
+pread64<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">buf</span><span class="o">=</span>, <span class="nv">count</span><span class="o">=</span><span class="m">68</span>, <span class="nv">pos</span><span class="o">=</span><span class="m">880</span><span class="o">)</span> <span class="o">=</span> <span class="m">68</span>
+fstat<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">statbuf</span><span class="o">=</span><span class="m">140722511133920</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+mmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">0</span>, <span class="nv">len</span><span class="o">=</span><span class="m">8192</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">3</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">34</span>, <span class="nv">fd</span><span class="o">=</span><span class="m">4294967295</span>, <span class="nv">off</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">140631102517248</span>
+pread64<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">buf</span><span class="o">=</span>, <span class="nv">count</span><span class="o">=</span><span class="m">784</span>, <span class="nv">pos</span><span class="o">=</span><span class="m">64</span><span class="o">)</span> <span class="o">=</span> <span class="m">784</span>
+pread64<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">buf</span><span class="o">=</span>, <span class="nv">count</span><span class="o">=</span><span class="m">32</span>, <span class="nv">pos</span><span class="o">=</span><span class="m">848</span><span class="o">)</span> <span class="o">=</span> <span class="m">32</span>
+pread64<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">buf</span><span class="o">=</span>, <span class="nv">count</span><span class="o">=</span><span class="m">68</span>, <span class="nv">pos</span><span class="o">=</span><span class="m">880</span><span class="o">)</span> <span class="o">=</span> <span class="m">68</span>
+mmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">0</span>, <span class="nv">len</span><span class="o">=</span><span class="m">2036952</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">1</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">2050</span>, <span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">off</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">140631100477440</span>
+mprotect<span class="o">(</span><span class="nv">start</span><span class="o">=</span><span class="m">140631100628992</span>, <span class="nv">len</span><span class="o">=</span><span class="m">1847296</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+mmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">140631100628992</span>, <span class="nv">len</span><span class="o">=</span><span class="m">1540096</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">5</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">2066</span>, <span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">off</span><span class="o">=</span><span class="m">151552</span><span class="o">)</span> <span class="o">=</span> <span class="m">140631100628992</span>
+mmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">140631102169088</span>, <span class="nv">len</span><span class="o">=</span><span class="m">303104</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">1</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">2066</span>, <span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">off</span><span class="o">=</span><span class="m">1691648</span><span class="o">)</span> <span class="o">=</span> <span class="m">140631102169088</span>
+mmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">140631102476288</span>, <span class="nv">len</span><span class="o">=</span><span class="m">24576</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">3</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">2066</span>, <span class="nv">fd</span><span class="o">=</span><span class="m">3</span>, <span class="nv">off</span><span class="o">=</span><span class="m">1994752</span><span class="o">)</span> <span class="o">=</span> <span class="m">140631102476288</span>
+mmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">140631102500864</span>, <span class="nv">len</span><span class="o">=</span><span class="m">13528</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">3</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">50</span>, <span class="nv">fd</span><span class="o">=</span><span class="m">4294967295</span>, <span class="nv">off</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">140631102500864</span>
+close<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">3</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+arch_prctl<span class="o">(</span><span class="nv">task</span><span class="o">=</span><span class="m">4098</span>, <span class="nv">code</span><span class="o">=</span><span class="m">140631102522752</span>, <span class="nv">addr</span><span class="o">=</span><span class="m">18446603442607026496</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+mprotect<span class="o">(</span><span class="nv">start</span><span class="o">=</span><span class="m">140631102476288</span>, <span class="nv">len</span><span class="o">=</span><span class="m">12288</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">1</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+mprotect<span class="o">(</span><span class="nv">start</span><span class="o">=</span><span class="m">94331820990464</span>, <span class="nv">len</span><span class="o">=</span><span class="m">4096</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">1</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+mprotect<span class="o">(</span><span class="nv">start</span><span class="o">=</span><span class="m">140631102717952</span>, <span class="nv">len</span><span class="o">=</span><span class="m">4096</span>, <span class="nv">prot</span><span class="o">=</span><span class="m">1</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+munmap<span class="o">(</span><span class="nv">addr</span><span class="o">=</span><span class="m">140631102525440</span>, <span class="nv">len</span><span class="o">=</span><span class="m">6530</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+brk<span class="o">(</span><span class="nv">brk</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">94331848404992</span>
+brk<span class="o">(</span><span class="nv">brk</span><span class="o">=</span><span class="m">94331848540160</span><span class="o">)</span> <span class="o">=</span> <span class="m">94331848540160</span>
+clock_nanosleep<span class="o">(</span><span class="nv">which_clock</span><span class="o">=</span><span class="m">0</span>, <span class="nv">flags</span><span class="o">=</span><span class="m">0</span>, <span class="nv">rqtp</span><span class="o">=</span><span class="m">140722511137168</span>, <span class="nv">rmtp</span><span class="o">=</span><span class="m">0</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+close<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">1</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+close<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">2</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+exit_group<span class="o">(</span><span class="nv">error_code</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+--- program exited ---
+</code></pre></div>
+<p>Let's take a look at an interesting lines.</p>
+<h4 id="access-syscall">access syscall<a class="headerlink" href="#access-syscall" title="Permanent link">&para;</a></h4>
+<p><a href="https://linux.die.net/man/2/access"><code>access</code></a> syscall check real user's permissions for a file. Its signature is:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">access</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pathname</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
+</code></pre></div>
+<p>In the output, Syscall Monkey intercepted the syscall, and we can see that the program check the file <code>/etc/ld.so.preload</code>, and it gets an error number 2 "no such file or directory":</p>
+<div class="highlight"><pre><span></span><code><span class="n">access</span><span class="p">(</span><span class="n">filename</span><span class="o">=/</span><span class="n">etc</span><span class="o">/</span><span class="n">ld</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">preload</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">(</span><span class="n">errno</span> <span class="mi">2</span><span class="p">:</span> <span class="n">no</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="attaching-to-a-running-process">Attaching to a running process<a class="headerlink" href="#attaching-to-a-running-process" title="Permanent link">&para;</a></h3>
+<p>To attach to a process that's already running, you can specify the PID of the target via <code>-p</code> flag. For example:</p>
+<div class="highlight"><pre><span></span><code>root@c69219c773ff:/# sleep <span class="m">5</span><span class="p">&amp;</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span> <span class="m">10</span>
+root@c69219c773ff:/# monkey -p <span class="m">10</span>
+...
+restart_syscall<span class="o">()</span> <span class="o">=</span> <span class="m">0</span>
+close<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">1</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+close<span class="o">(</span><span class="nv">fd</span><span class="o">=</span><span class="m">2</span><span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
+exit_group<span class="o">(</span><span class="nv">error_code</span><span class="o">=</span><span class="m">0</span><span class="o">)</span>
+--- program exited ---
+<span class="o">[</span><span class="m">1</span><span class="o">]</span>+  Done                    sleep <span class="m">5</span>
+</code></pre></div>
+<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>You now have a Syscall Monkey available. Here's a quick example to get you started:</p>
+<h3 id="change-the-return-value-of-geteuid">Change the return value of geteuid<a class="headerlink" href="#change-the-return-value-of-geteuid" title="Permanent link">&para;</a></h3>
+<p>Use this scenario to sometimes change the user returned by <a href="https://linux.die.net/man/2/geteuid"><code>getuid</code></a>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># cat /etc/passwd</span>
+<span class="c1"># root:x:0:0:root:/root:/bin/bash</span>
+<span class="c1"># daemon:x:1:1:daemon:/usr/sbin:/usr/s</span>
+<span class="c1"># bin:x:2:2:bin:/bin:/usr/sbin/nologin</span>
+
+<span class="c1"># cat /examples/getuid-random.yml</span>
+<span class="nt">rules</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probably daemon</span>
+    <span class="nt">probability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.66</span>
+    <span class="nt">match</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">geteuid</span>
+    <span class="nt">modify</span><span class="p">:</span>
+      <span class="nt">return</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">but maybe bin</span>
+    <span class="nt">probability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.5</span>
+    <span class="nt">match</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">geteuid</span>
+    <span class="nt">modify</span><span class="p">:</span>
+      <span class="nt">return</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div>
+<p>And this should be enough to confuse a lot of people:</p>
+<div class="highlight"><pre><span></span><code>root@f34cc94a6b6d:/# whoami
+root
+root@f34cc94a6b6d:/# monkey -s -c /examples/getuid-random.yml whoami
+daemon
+root@f34cc94a6b6d:/# monkey -s -c /examples/getuid-random.yml whoami
+root
+root@f34cc94a6b6d:/# monkey -s -c /examples/getuid-random.yml whoami
+bin
+</code></pre></div>
+<h2 id="time-for-mischief">Time for mischief!<a class="headerlink" href="#time-for-mischief" title="Permanent link">&para;</a></h2>
+<p>This should be enough to get you started. Have fun!</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../advanced/" class="md-footer__link md-footer__link--next" aria-label="Next: Advanced Usage" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Advanced Usage
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.indexes", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>
