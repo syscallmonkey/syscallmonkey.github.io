@@ -13,7 +13,7 @@
 
 ### Change the return value
 
-Here's how you can trick `whoami` into thinking it runs as `daemon` user (1), intead of `root` (0)
+Here's how you can trick `whoami` into thinking it runs as a different user. First, it works as expected:
 
 ```sh
 root@f34cc94a6b6d:/# whoami
